@@ -1,0 +1,52 @@
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+  <div class="d-flex align-items-center">
+    <mat-card >
+      <mat-card-title class="text-center">
+        <h3>{{product.id ? 'Edit' : 'Add new'}}  Product</h3>
+      </mat-card-title>
+      <mat-card-content>
+        <div >
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Title</mat-label>
+              <input matInput error  name="title" #title="ngModel" [(ngModel)]="product.title" required>
+              <mat-error *ngIf="title.hasError('required')">
+                Title is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Price</mat-label>
+              <input matInput error  name="price" #price="ngModel" [(ngModel)]="product.price" required>
+              <mat-error *ngIf="price.hasError('required')">
+                Price is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Category</mat-label>
+              <input matInput error placeholder="pat@example.com" name="category" #category="ngModel" [(ngModel)]="product.category" required>
+              <mat-error *ngIf="category.hasError('required')">
+                Category is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Description</mat-label>
+              <textarea matInput error placeholder="pat@example.com" name="description" #description="ngModel" [(ngModel)]="product.description" required></textarea>
+              <mat-error *ngIf="description.hasError('required')">
+                Description is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions [align]="'start'">
+        <button mat-raised-button color="primary">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</form>

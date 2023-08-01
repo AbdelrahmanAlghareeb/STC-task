@@ -1,0 +1,18 @@
+<section class="products-wrapper text-center" >
+  <h2 >Explore our new collections</h2>
+  <div>
+    <mat-chip-listbox aria-label="categories selection" (change)="getAllProductsByCategory($event.value)" >
+      <mat-chip-option [value]="category" color="primary" [selected]="category == selectedCategory"  *ngFor="let category of categories">
+        {{category | titlecase}}
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </div>
+  <div class="d-flex list">
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+      (categorySelected)="getAllProductsByCategory($event)"
+    >
+    </app-product-card>
+  </div>
+</section>

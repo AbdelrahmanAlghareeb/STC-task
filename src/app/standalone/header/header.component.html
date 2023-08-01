@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" >
+  <div class="d-flex justify-content-between w-100">
+    <div>
+      <button mat-button routerLink="/">STC</button>
+      <button mat-button routerLink="/products" *ngIf="userData?.isAdmin == false">
+        <!-- <mat-icon>gamepad</mat-icon> -->
+        Products
+      </button>
+      <button mat-button routerLink='/dashboard' *ngIf="userData?.isAdmin == true">
+        <!-- <mat-icon>gamepad</mat-icon> -->
+        Products Managements
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="/login" *ngIf="!userData">
+        <!-- <mat-icon>power_settings_new</mat-icon> -->
+        Login
+      </button>
+      <button mat-button *ngIf="userData" (click)="logout()">
+        <!-- <mat-icon>exit_to_app</mat-icon> -->
+        Logout
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+

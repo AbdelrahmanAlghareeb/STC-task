@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+  margin-top: 40px;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+img {
+  width: 100px;
+}
+.details-wrapper {
+  gap: 40px;
+}

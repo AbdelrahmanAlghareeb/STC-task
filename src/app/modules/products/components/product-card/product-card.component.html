@@ -1,0 +1,31 @@
+
+<mat-card  *ngIf="product">
+  <mat-card-header class="justify-content-center">
+    <mat-card-title
+      color="primary"
+      [matTooltip]="product.title"
+      matTooltipHideDelay="500"
+    >{{product.title | slice : 0:25}}
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-lg-image [src]="product.image" [alt]="product.title">
+  <mat-card-content
+    [matTooltip]="product.description"
+    matTooltipHideDelay="500">
+    {{product.description | slice : 0:60}}
+  </mat-card-content>
+  <mat-card-footer>
+    <div class="price"> ${{product.price}}</div>
+    <div class="d-flex justify-content-center">
+      <star-rating
+        [matTooltip]="product.rating.rate +''"
+        matTooltipHideDelay="500"
+        [readOnly]="true"
+        [starType]="'svg'"
+        [rating]="product.rating.rate"
+      ></star-rating>
+      <span>({{product.rating.count}})</span>
+    </div>
+    <button mat-flat-button color="accent" (click)="onCategoryClick()" >{{product.category | titlecase}}</button>
+  </mat-card-footer>
+</mat-card>
